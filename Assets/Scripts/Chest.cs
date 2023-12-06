@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Chest : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class Chest : MonoBehaviour
     private void GiveItemToPlayer(Item item)
     {
         // add to main ui the image of the item
-        UIManager.instance.AddImageToScrollView(item.itemIcon);
+        AddToMainUI(item);
 
         // popup
         ActivateItemObtainedPopup(item);
@@ -41,8 +42,8 @@ public class Chest : MonoBehaviour
         UIManager.instance.ShowItemObtainedPopup(obtainedItem.itemName, obtainedItem.itemDescription ,obtainedItem.itemIcon);
     }
 
-    private void AddToMainUI()
+    private void AddToMainUI(Item item)
     {
-
+        UIManager.instance.AddImageToScrollView(item.itemIcon);
     }
 }

@@ -8,6 +8,8 @@ public class ItemManager : MonoBehaviour
     // items lists (by group)
     public List<Item> groupAItems;
     public List<Item> groupBItems;
+    public List<Item> groupCItems;
+    public List<Item> groupDItems;
 
     void Awake()
     {
@@ -25,6 +27,8 @@ public class ItemManager : MonoBehaviour
         // randomize the lists
         groupAItems = RandomizeList(groupAItems);
         groupBItems = RandomizeList(groupBItems);
+        groupCItems = RandomizeList(groupCItems);
+        groupDItems = RandomizeList(groupDItems);
     }
 
     public List<Item> GetItemsByGroup(string group)
@@ -35,6 +39,10 @@ public class ItemManager : MonoBehaviour
                 return groupAItems;
             case "B":
                 return groupBItems;
+            case "C":
+                return groupCItems;
+            case "D":
+                return groupDItems;
             default:
                 Debug.LogError("Group not found: " + group);
                 return new List<Item>(); // return an empty list
