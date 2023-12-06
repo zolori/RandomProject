@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Item : MonoBehaviour
+[CreateAssetMenu(fileName = "New Item", menuName = "New Scriptable/Item")]
+public class Item : ScriptableObject
 {
     public string itemName;
     public string itemDescription;

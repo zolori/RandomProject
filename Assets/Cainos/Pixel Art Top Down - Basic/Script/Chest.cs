@@ -7,17 +7,18 @@ public class Chest : MonoBehaviour
     public string group;
     private List<Item> itemList;
 
+    private Item chosenItem;
+
     void Start()
     {
         itemList = ItemManager.instance.GetItemsByGroup(group);
 
-        Item chosenItem = ChooseRandomItem();
+        chosenItem = ChooseRandomItem();
 
         Debug.Log("Item in chest: " + chosenItem.itemName);
 
 
         itemList.Remove(chosenItem);
-        GiveItemToPlayer(chosenItem);
     }
 
     private Item ChooseRandomItem()
@@ -25,6 +26,11 @@ public class Chest : MonoBehaviour
         return itemList[Random.Range(0, itemList.Count)];
     }
     
+    public void OpenChest()
+    {
+        GiveItemToPlayer(chosenItem);
+    }
+
     private void GiveItemToPlayer(Item item)
     {
         // add to main ui the image of the item
@@ -35,6 +41,10 @@ public class Chest : MonoBehaviour
 
         // grant the associated ability to the player
         PlayerManager.instance.GrantAbility(item.grantedAbility);
+
+
+        Debug.Log(gameObject.name);
+        Destroy(gameObject);
     }
 
     private void ActivateItemObtainedPopup(Item obtainedItem)
