@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8940328934978107143}
   - component: {fileID: 8940328934978107142}
+  - component: {fileID: 1966410004}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -51,3 +52,20 @@ MonoBehaviour:
   itemIconPrefab: {fileID: 3063667061065390749, guid: 9e5652492669dfb4c850e8526c9f535f,
     type: 3}
   scrollRect: {fileID: 0}
+--- !u!114 &1966410004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8940328934978107137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5727b9e3feab6ca43b9a17950cc4eb57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groupAItems:
+  - {fileID: 11400000, guid: fd5a4e3c52667664b89b5b18ff2bebb0, type: 2}
+  groupBItems: []
+  groupCItems: []
+  groupDItems: []

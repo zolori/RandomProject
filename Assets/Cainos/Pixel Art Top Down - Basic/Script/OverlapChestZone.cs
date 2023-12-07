@@ -9,10 +9,9 @@ public class OverlapChestZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Enter");
         if (other.CompareTag("Player"))
         {
-            print("Enter Player");
+            print("Give item to player!");
             Chest.OpenChest();
         }
     }

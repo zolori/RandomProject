@@ -1,34 +1,42 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class Chest : MonoBehaviour
 {
     public string group;
     private List<Item> itemList;
+    private List<Item> itemsInChest;
 
-    private Item chosenItem;
-
-    void Start()
+    private void Start()
     {
-        itemList = ItemManager.instance.GetItemsByGroup(group);
+        itemList = new List<Item>(ItemManager.instance.GetItemsByGroup(group));
+        itemsInChest = new List<Item>();
 
-        chosenItem = ChooseRandomItem();
+        int maxItemsPerChest = Mathf.CeilToInt(itemList.Count / (float)GameManager.instance.GetNumberOfChestsByGroup(group));
 
-        Debug.Log("Item in chest: " + chosenItem.itemName);
+        while (itemsInChest.Count < maxItemsPerChest && itemList.Count > 0)
+        {
+            Item chosenItem = ChooseRandomItem();
+            itemsInChest.Add(chosenItem);
+            itemList.Remove(chosenItem);
+        }
 
-
-        itemList.Remove(chosenItem);
+        Debug.Log($"Items in chest ({gameObject.name}): {string.Join(", ", itemsInChest.ConvertAll(i => i.itemName))}");
     }
 
     private Item ChooseRandomItem()
     {
         return itemList[Random.Range(0, itemList.Count)];
     }
-    
+
     public void OpenChest()
     {
-        GiveItemToPlayer(chosenItem);
+        foreach (Item item in itemsInChest)
+        {
+            GiveItemToPlayer(item);
+        }
+
+        Destroy(gameObject);
     }
 
     private void GiveItemToPlayer(Item item)
@@ -41,15 +49,11 @@ public class Chest : MonoBehaviour
 
         // grant the associated ability to the player
         PlayerManager.instance.GrantAbility(item.grantedAbility);
-
-
-        Debug.Log(gameObject.name);
-        Destroy(gameObject);
     }
 
     private void ActivateItemObtainedPopup(Item obtainedItem)
     {
-        UIManager.instance.ShowItemObtainedPopup(obtainedItem.itemName, obtainedItem.itemDescription ,obtainedItem.itemIcon);
+        UIManager.instance.ShowItemObtainedPopup(obtainedItem.itemName, obtainedItem.itemDescription, obtainedItem.itemIcon);
     }
 
     private void AddToMainUI(Item item)
