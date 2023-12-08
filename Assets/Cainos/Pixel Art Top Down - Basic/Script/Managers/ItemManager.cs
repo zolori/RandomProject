@@ -49,6 +49,28 @@ public class ItemManager : MonoBehaviour
         }
     }
 
+    public void RemoveItemsFromGroup(string group)
+    {
+        switch (group)
+        {
+            case "A":
+                groupAItems.Clear();
+                break;
+            case "B":
+                groupBItems.Clear();
+                break;
+            case "C":
+                groupCItems.Clear();
+                break;
+            case "D":
+                groupDItems.Clear();
+                break;
+            default:
+                Debug.LogError("Group not found: " + group);
+                break;
+        }
+    }
+
     private List<Item> RandomizeList(List<Item> inputList)
     {
         List<Item> randomList = new List<Item>();

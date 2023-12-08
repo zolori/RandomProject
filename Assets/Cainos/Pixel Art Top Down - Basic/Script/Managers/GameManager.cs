@@ -4,8 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
-    private Dictionary<string, int> chestCountByGroup = new Dictionary<string, int>();
+    private ChestManager chestManager;
 
     private void Awake()
     {
@@ -19,30 +18,12 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // get all chests
-        Chest[] allChests = FindObjectsOfType<Chest>();
-        CountChestsByGroup(allChests);
+        chestManager = FindObjectOfType<ChestManager>();
     }
 
-    private void CountChestsByGroup(Chest[] chests)
+    private void Start()
     {
-        foreach (Chest chest in chests)
-        {
-            if (!chestCountByGroup.ContainsKey(chest.group))
-            {
-                chestCountByGroup[chest.group] = 1;
-            }
-            else
-            {
-                chestCountByGroup[chest.group]++;
-            }
-        }
-    }
-
-    public int GetNumberOfChestsByGroup(string group)
-    {
-        return chestCountByGroup.ContainsKey(group) ? chestCountByGroup[group] : 0;
+        // Vous devez appeler la fonction de distribution du ChestManager
+        chestManager.DistributeItems();
     }
 }
-
-

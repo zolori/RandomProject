@@ -7,7 +7,7 @@ public class Item : ScriptableObject
 {
     public string itemName;
     public string itemDescription;
-    public string category;
+    public string group;
     public Sprite itemIcon;
     public string grantedAbility; // what the item allows you too
 }

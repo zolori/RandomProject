@@ -4,29 +4,13 @@ using UnityEngine;
 public class Chest : MonoBehaviour
 {
     public string group;
-    private List<Item> itemList;
+
+    [SerializeField]
     private List<Item> itemsInChest;
 
-    private void Start()
+    public void AddItemToChestRange(List<Item> items)
     {
-        itemList = new List<Item>(ItemManager.instance.GetItemsByGroup(group));
-        itemsInChest = new List<Item>();
-
-        int maxItemsPerChest = Mathf.CeilToInt(itemList.Count / (float)GameManager.instance.GetNumberOfChestsByGroup(group));
-
-        while (itemsInChest.Count < maxItemsPerChest && itemList.Count > 0)
-        {
-            Item chosenItem = ChooseRandomItem();
-            itemsInChest.Add(chosenItem);
-            itemList.Remove(chosenItem);
-        }
-
-        Debug.Log($"Items in chest ({gameObject.name}): {string.Join(", ", itemsInChest.ConvertAll(i => i.itemName))}");
-    }
-
-    private Item ChooseRandomItem()
-    {
-        return itemList[Random.Range(0, itemList.Count)];
+        itemsInChest.AddRange(items);
     }
 
     public void OpenChest()
