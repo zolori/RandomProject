@@ -50,6 +50,7 @@ MonoBehaviour:
   itemObtainedPopup: {fileID: 0}
   itemNameText: {fileID: 0}
   itemDescriptionText: {fileID: 0}
+  popupNumberText: {fileID: 0}
   itemIconImage: {fileID: 0}
   itemIconPrefab: {fileID: 3063667061065390749, guid: 9e5652492669dfb4c850e8526c9f535f,
     type: 3}

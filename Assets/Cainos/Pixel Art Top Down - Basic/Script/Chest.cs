@@ -8,6 +8,8 @@ public class Chest : MonoBehaviour
     [SerializeField]
     private List<Item> itemsInChest;
 
+    private int numberOfItemsGiven;
+
     public void AddItemToChestRange(List<Item> items)
     {
         itemsInChest.AddRange(items);
@@ -15,9 +17,11 @@ public class Chest : MonoBehaviour
 
     public void OpenChest()
     {
+        numberOfItemsGiven = 1;
         foreach (Item item in itemsInChest)
         {
             GiveItemToPlayer(item);
+            numberOfItemsGiven += 1;
         }
 
         Destroy(gameObject);
@@ -29,15 +33,12 @@ public class Chest : MonoBehaviour
         AddToMainUI(item);
 
         // popup
-        ActivateItemObtainedPopup(item);
-
-        // grant the associated ability to the player
-        PlayerManager.instance.GrantAbility(item.grantedAbility);
+        ActivateItemObtainedPopup(item, numberOfItemsGiven, itemsInChest.Count);
     }
 
-    private void ActivateItemObtainedPopup(Item obtainedItem)
+    private void ActivateItemObtainedPopup(Item obtainedItem, int currentNumber, int totalItems)
     {
-        UIManager.instance.ShowItemObtainedPopup(obtainedItem.itemName, obtainedItem.itemDescription, obtainedItem.itemIcon);
+        UIManager.instance.ShowItemObtainedPopup(obtainedItem.itemName, obtainedItem.itemDescription, obtainedItem.itemIcon, currentNumber, totalItems);
     }
 
     private void AddToMainUI(Item item)

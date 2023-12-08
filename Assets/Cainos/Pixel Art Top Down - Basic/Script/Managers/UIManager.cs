@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public GameObject itemObtainedPopup;
     public TextMeshProUGUI itemNameText;
     public TextMeshProUGUI itemDescriptionText;
+    public TextMeshProUGUI popupNumberText;
     public Image itemIconImage;
 
     public GameObject itemIconPrefab;
@@ -34,19 +35,22 @@ public class UIManager : MonoBehaviour
         contentRectTransform = scrollRect.content;
     }
 
-    public void ShowItemObtainedPopup(string itemName, string itemDescription, Sprite itemIcon)
+
+    public void ShowItemObtainedPopup(string itemName, string itemDescription, Sprite itemIcon, int currentPopup, int maxPopup)
     {
         PopupQueueItem popupItem = new PopupQueueItem
         {
             itemName = itemName,
             itemDescription = itemDescription,
-            itemIcon = itemIcon
+            itemIcon = itemIcon,
+            popupNumberCurrent = currentPopup,
+            popupNumberMax = maxPopup
         };
 
-        // Ajoutez l'élément à la file d'attente
+        // add element to the Queue
         popupQueue.Enqueue(popupItem);
 
-        // Vérifiez si un pop-up est déjà affiché
+        // already a popup displayed?
         if (!isPopupShowing)
         {
             ShowNextPopup();
@@ -60,13 +64,14 @@ public class UIManager : MonoBehaviour
             PopupQueueItem nextPopup = popupQueue.Dequeue();
             isPopupShowing = true;
 
-            // Affichez le pop-up avec les informations de nextPopup
+            // display information of the popup
             itemObtainedPopup.SetActive(true);
             itemNameText.text = nextPopup.itemName;
             itemDescriptionText.text = nextPopup.itemDescription;
             itemIconImage.sprite = nextPopup.itemIcon;
+            popupNumberText.text = $"{nextPopup.popupNumberCurrent}/{nextPopup.popupNumberMax}";
 
-            // Commencez une coroutine pour masquer le pop-up après un certain temps
+            // wait to hide the popup
             StartCoroutine(HideItemObtainedPopup());
         }
         else
@@ -80,7 +85,7 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         itemObtainedPopup.SetActive(false);
 
-        // Affichez le prochain pop-up dans la file d'attente
+        // display next popup
         ShowNextPopup();
     }
 
