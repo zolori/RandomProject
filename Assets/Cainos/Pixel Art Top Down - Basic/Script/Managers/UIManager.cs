@@ -1,6 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +17,9 @@ public class UIManager : MonoBehaviour
     public ScrollRect scrollRect;
     private RectTransform contentRectTransform;
 
+    private Queue<PopupQueueItem> popupQueue = new Queue<PopupQueueItem>();
+    private bool isPopupShowing = false;
+
     void Awake()
     {
         if (instance == null)
@@ -29,25 +32,56 @@ public class UIManager : MonoBehaviour
         }
 
         contentRectTransform = scrollRect.content;
-
     }
 
     public void ShowItemObtainedPopup(string itemName, string itemDescription, Sprite itemIcon)
     {
-        // display item's info
-        itemObtainedPopup.SetActive(true);
-        itemNameText.text = itemName;
-        itemDescriptionText.text = itemDescription;
-        itemIconImage.sprite = itemIcon;
+        PopupQueueItem popupItem = new PopupQueueItem
+        {
+            itemName = itemName,
+            itemDescription = itemDescription,
+            itemIcon = itemIcon
+        };
 
-        // hide popup after some time
-        StartCoroutine(HideItemObtainedPopup());
+        // Ajoutez l'élément à la file d'attente
+        popupQueue.Enqueue(popupItem);
+
+        // Vérifiez si un pop-up est déjà affiché
+        if (!isPopupShowing)
+        {
+            ShowNextPopup();
+        }
+    }
+
+    private void ShowNextPopup()
+    {
+        if (popupQueue.Count > 0)
+        {
+            PopupQueueItem nextPopup = popupQueue.Dequeue();
+            isPopupShowing = true;
+
+            // Affichez le pop-up avec les informations de nextPopup
+            itemObtainedPopup.SetActive(true);
+            itemNameText.text = nextPopup.itemName;
+            itemDescriptionText.text = nextPopup.itemDescription;
+            itemIconImage.sprite = nextPopup.itemIcon;
+
+            // Commencez une coroutine pour masquer le pop-up après un certain temps
+            StartCoroutine(HideItemObtainedPopup());
+        }
+        else
+        {
+            isPopupShowing = false;
+        }
     }
 
     IEnumerator HideItemObtainedPopup()
     {
         yield return new WaitForSeconds(3f);
         itemObtainedPopup.SetActive(false);
+
+        // Affichez le prochain pop-up dans la file d'attente
+        ShowNextPopup();
     }
 
     public void AddImageToScrollView(Sprite imageSprite)
