@@ -61,6 +61,7 @@ public class ChestManager : MonoBehaviour
         }
     }
 
+    // give items to chest, equitably (+-1)
     private void DistributeItemsEquitably(List<Chest> chests, List<Item> items)
     {
         int itemsPerChest = items.Count / chests.Count;

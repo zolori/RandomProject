@@ -24,7 +24,7 @@ public class ItemManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // randomize the lists
+        // shuffle the lists
         groupAItems = RandomizeList(groupAItems);
         groupBItems = RandomizeList(groupBItems);
         groupCItems = RandomizeList(groupCItems);
@@ -46,28 +46,6 @@ public class ItemManager : MonoBehaviour
             default:
                 Debug.LogError("Group not found: " + group);
                 return new List<Item>(); // return an empty list
-        }
-    }
-
-    public void RemoveItemsFromGroup(string group)
-    {
-        switch (group)
-        {
-            case "A":
-                groupAItems.Clear();
-                break;
-            case "B":
-                groupBItems.Clear();
-                break;
-            case "C":
-                groupCItems.Clear();
-                break;
-            case "D":
-                groupDItems.Clear();
-                break;
-            default:
-                Debug.LogError("Group not found: " + group);
-                break;
         }
     }
 

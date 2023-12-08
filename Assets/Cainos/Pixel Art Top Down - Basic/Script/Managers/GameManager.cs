@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // Vous devez appeler la fonction de distribution du ChestManager
+        // start to distribute items in chests
         chestManager.DistributeItems();
     }
 }
