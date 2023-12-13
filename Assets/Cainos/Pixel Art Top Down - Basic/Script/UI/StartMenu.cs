@@ -5,7 +5,7 @@ public class StartMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("SC Pixel Art Top Down - Basic");
+        SceneManager.LoadScene("Map");
     }
 
     public void QuitGame()
