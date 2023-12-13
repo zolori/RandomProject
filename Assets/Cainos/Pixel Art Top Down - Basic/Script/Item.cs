@@ -11,4 +11,10 @@ public class Item : ScriptableObject
 
     public string group; // the group it belongs to
     public string grantedAbility; // what the item allows you too
+
+    // get unique id for the seed
+    public int GetUniqueID()
+    {
+        return GetInstanceID();
+    }
 }

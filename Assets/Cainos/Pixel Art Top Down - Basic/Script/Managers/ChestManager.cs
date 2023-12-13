@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class ChestManager : MonoBehaviour
@@ -23,6 +24,11 @@ public class ChestManager : MonoBehaviour
         // get all chests - randomize the order
         Chest[] chestsArray = FindObjectsOfType<Chest>().OrderBy(x => UnityEngine.Random.value).ToArray();
         allChests.AddRange(chestsArray);
+    }
+
+    public List<Chest> GetAllChest()
+    {
+        return allChests;
     }
 
     public List<Chest> GetChestsByGroup(string group)
@@ -49,6 +55,14 @@ public class ChestManager : MonoBehaviour
         }
         return groups;
     }
+
+
+    private bool IsItemInCorrectGroup(Item item, string expectedGroup)
+    {
+        // Check if the item's group matches the expected group
+        return item.group == expectedGroup;
+    }
+
 
     public void DistributeItems()
     {
@@ -78,6 +92,61 @@ public class ChestManager : MonoBehaviour
 
             itemIndex += itemsToGive;
             remainingItems--;
+        }
+    }
+
+    public bool IsChestCompositionSolvable()
+    {
+        int nbError = 0;
+
+        foreach (string group in GetDistinctGroups())
+        {
+            List<Item> itemsForGroup = ItemManager.instance.GetItemsByGroup(group);
+            List<Chest> chestsInGroup = GetChestsByGroup(group);
+
+            // 0 chest but items to give
+            if (chestsInGroup.Count < 1 && itemsForGroup.Count > 0)
+            {
+                Debug.LogWarning($"Le groupe {group} n'est pas solvable. Nombre d'objets : {itemsForGroup.Count}, Nombre de coffres : {chestsInGroup.Count}");
+                nbError = +1;
+            }
+
+            // less items than chest
+            if (itemsForGroup.Count < chestsInGroup.Count)
+            {
+                Debug.LogWarning($"Le groupe {group} n'est pas solvable. Nombre d'objets : {itemsForGroup.Count}, Nombre de coffres : {chestsInGroup.Count}");
+                nbError = +1;
+            }
+
+            // empty chest?
+            foreach (Chest chest in chestsInGroup)
+            {
+                if (chest.GetItemsCount() == 0)
+                {
+                    Debug.LogWarning($"Le coffre {chest.name} dans le groupe {group} est vide.");
+                    nbError = +1;
+                }
+            }
+
+            // item in wrong group?
+            foreach (Item item in itemsForGroup)
+            {
+                if (!IsItemInCorrectGroup(item, group))
+                {
+                    Debug.LogWarning($"L'objet {item.itemName} n'est pas dans le groupe {group} approprié.");
+                    nbError = +1;
+                }
+            }
+        }
+
+        // to get all the messages no matter what
+        if (nbError > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return true;
         }
     }
 }
