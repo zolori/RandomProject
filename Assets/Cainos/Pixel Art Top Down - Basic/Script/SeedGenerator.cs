@@ -4,7 +4,7 @@ using UnityEngine;
 public class SeedGenerator : MonoBehaviour
 {
     private static int generatedSeed;
-    private static int userEnteredSeed; // Nouvelle variable
+    private static int userEnteredSeed;
 
     public static void GenerateSeed(List<Chest> allChests)
     {
@@ -12,12 +12,11 @@ public class SeedGenerator : MonoBehaviour
 
         if (userEnteredSeed != 0)
         {
-            // Utilisez la seed entrée par l'utilisateur si elle existe
-            seed = userEnteredSeed;
+            seed = userEnteredSeed; // if exist
         }
         else
         {
-            // Générez une nouvelle seed normalement
+            // create new seed
             seed = 17;
 
             foreach (Chest chest in allChests)

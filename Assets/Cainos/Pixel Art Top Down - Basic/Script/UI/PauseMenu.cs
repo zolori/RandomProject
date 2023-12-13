@@ -35,7 +35,7 @@ public class PauseMenu : MonoBehaviour
     void DisplaySeed()
     {
         int currentSeed = SeedGenerator.GetGeneratedSeed();
-        seedText.text = "Seed : " + currentSeed.ToString();
+        seedText.text = currentSeed.ToString();
     }
 
     public void CopySeedToClipboard()
