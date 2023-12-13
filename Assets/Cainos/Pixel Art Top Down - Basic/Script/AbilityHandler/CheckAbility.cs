@@ -11,6 +11,7 @@ public class CheckAbility : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             AbilityHandler abilityHandler = other.gameObject.GetComponent<AbilityHandler>();
+            Debug.Log("AbilityNeeded : " + AbilityNeeded + ", Other.name : " + other.gameObject.name + ", Has Ability? : " + PlayerManager.instance.HasAbility(AbilityNeeded));
 
             if (abilityHandler != null)
             {
@@ -21,6 +22,7 @@ public class CheckAbility : MonoBehaviour
                     switch (AbilityNeeded)
                     {
                         case "goThroughHoles":
+                            Debug.Log("AAAAAAAAAAH");
                             abilityHandler.HandleGoThroughHoles();
                             break;
                         case "swim":

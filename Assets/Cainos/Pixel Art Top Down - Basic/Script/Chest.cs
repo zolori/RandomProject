@@ -20,20 +20,23 @@ public class Chest : MonoBehaviour
         numberOfItemsGiven = 1;
         foreach (Item item in itemsInChest)
         {
-            GiveItemToPlayer(item);
+            GiveItemToPlayerUI(item);
             numberOfItemsGiven += 1;
         }
 
         Destroy(gameObject);
     }
 
-    private void GiveItemToPlayer(Item item)
+    private void GiveItemToPlayerUI(Item item)
     {
         // add to main ui the image of the item
         AddToMainUI(item);
 
         // popup
         ActivateItemObtainedPopup(item, numberOfItemsGiven, itemsInChest.Count);
+
+        //give ability to player
+        PlayerManager.instance.GrantAbility(item.grantedAbility);
     }
 
     private void ActivateItemObtainedPopup(Item obtainedItem, int currentNumber, int totalItems)
