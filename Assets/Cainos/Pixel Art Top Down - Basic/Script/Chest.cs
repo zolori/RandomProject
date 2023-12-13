@@ -10,9 +10,20 @@ public class Chest : MonoBehaviour
 
     private int numberOfItemsGiven;
 
+    // get unique id for the seed
+    public int GetUniqueID()
+    {
+        return GetInstanceID();
+    }
+
     public void AddItemToChestRange(List<Item> items)
     {
         itemsInChest.AddRange(items);
+    }
+
+    public int GetItemsCount()
+    {
+        return itemsInChest.Count;
     }
 
     public void OpenChest()

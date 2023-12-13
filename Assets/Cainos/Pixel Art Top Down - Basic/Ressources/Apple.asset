@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Apple
   itemDescription: a debugging apple
-  category: A
   itemIcon: {fileID: 21300136, guid: c3a40e1c46727b94e959990527f8e7fa, type: 3}
+  group: A
   grantedAbility: nothing

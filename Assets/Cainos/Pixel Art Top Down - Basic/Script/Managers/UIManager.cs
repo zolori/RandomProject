@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
+    public PauseMenu pauseMenu;
+
     public GameObject itemObtainedPopup;
     public TextMeshProUGUI itemNameText;
     public TextMeshProUGUI itemDescriptionText;
@@ -20,6 +22,8 @@ public class UIManager : MonoBehaviour
 
     private Queue<PopupQueueItem> popupQueue = new Queue<PopupQueueItem>();
     private bool isPopupShowing = false;
+
+    public bool isPaused = false;
 
     void Awake()
     {
@@ -35,6 +39,20 @@ public class UIManager : MonoBehaviour
         contentRectTransform = scrollRect.content;
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
+                pauseMenu.Resume();
+            }
+            else
+            {
+                pauseMenu.Pause();
+            }
+        }
+    }
 
     public void ShowItemObtainedPopup(string itemName, string itemDescription, Sprite itemIcon, int currentPopup, int maxPopup)
     {

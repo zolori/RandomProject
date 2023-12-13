@@ -24,6 +24,12 @@ public class ItemManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (!AreItemGroupsValid())
+        {
+            GameManager.instance.itemsComposition = false;
+            Debug.LogWarning("Some Items are in the wrong group in the lists in the ItemManager! Check other errors to know which it is.");
+        }
+
         // shuffle the lists
         groupAItems = RandomizeList(groupAItems);
         groupBItems = RandomizeList(groupBItems);
@@ -62,5 +68,47 @@ public class ItemManager : MonoBehaviour
         }
 
         return randomList;
+    }
+
+    public bool AreItemGroupsValid()
+    {
+        // check if all items are in the good group
+        foreach (Item item in groupAItems)
+        {
+            if (item.group != "A")
+            {
+                Debug.LogWarning($"L'item {item.itemName} n'appartient pas au groupe A !");
+                return false;
+            }
+        }
+
+        foreach (Item item in groupBItems)
+        {
+            if (item.group != "B")
+            {
+                Debug.LogWarning($"L'item {item.itemName} n'appartient pas au groupe B !");
+                return false;
+            }
+        }
+
+        foreach (Item item in groupCItems)
+        {
+            if (item.group != "C")
+            {
+                Debug.LogWarning($"L'item {item.itemName} n'appartient pas au groupe C !");
+                return false;
+            }
+        }
+
+        foreach (Item item in groupDItems)
+        {
+            if (item.group != "D")
+            {
+                Debug.LogWarning($"L'item {item.itemName} n'appartient pas au groupe D !");
+                return false;
+            }
+        }
+
+        return true;
     }
 }

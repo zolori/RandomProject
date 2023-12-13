@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Ladder
   itemDescription: Allows you to go though holes
-  category: A
   itemIcon: {fileID: 21300034, guid: dda6bbdb704d84847b38f9eced72bf59, type: 3}
+  group: A
   grantedAbility: goThroughHoles
