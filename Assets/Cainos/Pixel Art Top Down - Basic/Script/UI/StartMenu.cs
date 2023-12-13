@@ -9,24 +9,22 @@ public class StartMenu : MonoBehaviour
 
     public void PlayButtonClicked()
     {
-        // Vérifiez si l'utilisateur a entré une seed
+        // did user asked for a precise seed?
         if (!string.IsNullOrEmpty(seedInputField.text))
         {
             int userSeed;
             if (int.TryParse(seedInputField.text, out userSeed))
             {
-                // Stockez la seed entrée par l'utilisateur dans le SeedGenerator
                 SeedGenerator.SetUserEnteredSeed(userSeed);
             }
             else
             {
-                // Affichez un message d'erreur si l'entrée n'est pas un nombre valide
+                // not a valid seed
                 Debug.LogError("Seed invalide. Veuillez entrer un nombre entier.");
                 return;
             }
         }
 
-        // Charger la scène du jeu
         PlayGame();
     }
 
