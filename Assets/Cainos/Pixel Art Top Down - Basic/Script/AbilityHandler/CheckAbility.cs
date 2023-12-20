@@ -39,12 +39,6 @@ public class CheckAbility : MonoBehaviour
                         case "breakObstacles":
                             abilityHandler.HandleBreakObstacles();
                             break;
-                        case "key1":
-                            abilityHandler.HandleKey1();
-                            break;
-                        case "key2":
-                            abilityHandler.HandleKey2();
-                            break;
                         case "completeKey":
                             abilityHandler.HandleCompleteKey();
                             break;
@@ -53,6 +47,9 @@ public class CheckAbility : MonoBehaviour
                             break;
                         case "parchment2":
                             abilityHandler.HandleParchment2();
+                            break;
+                        case "ending":
+                            abilityHandler.HandleEnding();
                             break;
                         default:
                             print("None of the abilities correspond");

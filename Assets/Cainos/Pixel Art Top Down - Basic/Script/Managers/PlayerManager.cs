@@ -30,17 +30,22 @@ public class PlayerManager : MonoBehaviour
         playerAbilities.Add("completeKey", false);
         playerAbilities.Add("parchment1", false);
         playerAbilities.Add("parchment2", false);
+        playerAbilities.Add("ending", false);
     }
 
     public void GrantAbility(string abilityName)
     {
-        bool valeurKey1, valeurKey2;
-        playerAbilities.TryGetValue("key1", out valeurKey1);
-        playerAbilities.TryGetValue("key2", out valeurKey2);
+        bool valKey1, valKey2, valparchment1, valparchment2;
+        playerAbilities.TryGetValue("key1", out valKey1);
+        playerAbilities.TryGetValue("key2", out valKey2);
+        playerAbilities.TryGetValue("parchment1", out valparchment1);
+        playerAbilities.TryGetValue("parchment2", out valparchment2);
 
-        if (abilityName == "key1" && valeurKey2 == true || abilityName == "key2" && valeurKey1 == true)
+        if (abilityName == "key1" && valKey2 == true || abilityName == "key2" && valKey1 == true)
             playerAbilities["completeKey"] = true;
-        
+        if (abilityName == "parchment1" && valparchment2 == true || abilityName == "parchment2" && valparchment1 == true)
+            playerAbilities["ending"] = true;
+
         if (playerAbilities.ContainsKey(abilityName))
             playerAbilities[abilityName] = true;
         else

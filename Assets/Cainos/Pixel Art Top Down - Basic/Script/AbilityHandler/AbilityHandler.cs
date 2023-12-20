@@ -11,12 +11,11 @@ public class AbilityHandler : MonoBehaviour
     public GameObject DoubleJump;
     public GameObject Climb;
     public GameObject BreakObstacles;
-    public GameObject Key1;
-    public GameObject Key2;
     public GameObject CompleteKey;
     public GameObject DoorOpen;
     public GameObject Parchment1;
     public GameObject Parchment2;
+    public GameObject Ending;
 
 
     public virtual void HandleGoThroughWalls()
@@ -43,12 +42,6 @@ public class AbilityHandler : MonoBehaviour
     {
         Destroy(BreakObstacles);
     }
-    public virtual void HandleKey1()
-    {
-    }
-    public virtual void HandleKey2()
-    {
-    }
     public virtual void HandleCompleteKey()
     {
         Destroy(CompleteKey);
@@ -56,9 +49,17 @@ public class AbilityHandler : MonoBehaviour
     }
     public virtual void HandleParchment1()
     {
+        Parchment1.SetActive(true);
     }
     public virtual void HandleParchment2()
     {
+        Parchment2.SetActive(true);
     }
+    public virtual void HandleEnding()
+    {
+        Destroy(Ending);
+    }
+
+
 }
 
