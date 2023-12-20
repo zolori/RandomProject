@@ -7,6 +7,12 @@ public class StartMenu : MonoBehaviour
 {
     public TMP_InputField seedInputField;
 
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     public void PlayButtonClicked()
     {
         // did user asked for a precise seed?
@@ -30,7 +36,8 @@ public class StartMenu : MonoBehaviour
 
     private void PlayGame()
     {
-        SceneManager.LoadScene("Map");
+        Cursor.visible = false;
+        SceneManager.LoadScene("SC Pixel Art Top Down - Basic");
     }
 
     public void QuitGame()
