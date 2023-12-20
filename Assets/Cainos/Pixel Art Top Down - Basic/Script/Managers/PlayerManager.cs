@@ -30,7 +30,7 @@ public class PlayerManager : MonoBehaviour
         playerAbilities.Add("completeKey", false);
         playerAbilities.Add("parchment1", false);
         playerAbilities.Add("parchment2", false);
-        playerAbilities.Add("ending", false);
+        playerAbilities.Add("lastChest", false);
     }
 
     public void GrantAbility(string abilityName)
@@ -44,7 +44,7 @@ public class PlayerManager : MonoBehaviour
         if (abilityName == "key1" && valKey2 == true || abilityName == "key2" && valKey1 == true)
             playerAbilities["completeKey"] = true;
         if (abilityName == "parchment1" && valparchment2 == true || abilityName == "parchment2" && valparchment1 == true)
-            playerAbilities["ending"] = true;
+            playerAbilities["lastChest"] = true;
 
         if (playerAbilities.ContainsKey(abilityName))
             playerAbilities[abilityName] = true;

@@ -48,8 +48,8 @@ public class CheckAbility : MonoBehaviour
                         case "parchment2":
                             abilityHandler.HandleParchment2();
                             break;
-                        case "ending":
-                            abilityHandler.HandleEnding();
+                        case "lastChest":
+                            abilityHandler.HandleLastChest();
                             break;
                         default:
                             print("None of the abilities correspond");

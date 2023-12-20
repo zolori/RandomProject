@@ -29,7 +29,8 @@ public class MinimapManager : MonoBehaviour
                 chestToShow.isDisplayedOnMinimap = true;
                 chestSpriteRenderer.enabled = true;
             }
-            Debug.Log("Chest Sprite Renderer null : problem for minimap.");
+            else 
+                Debug.Log("Chest Sprite Renderer null : problem for minimap.");
         }
     }
 
@@ -39,13 +40,11 @@ public class MinimapManager : MonoBehaviour
 
         if (ChestManager.instance.GetChestsByGroup("A").Count > 0 && ChestManager.instance.GetChestsByGroup("A") != null)
         {
-            Debug.Log("AAAAAAAAAAAAAAAAAAAAA");
             availableChestList = ChestManager.instance.GetChestsByGroup("A");
         }
 
         else if (ChestManager.instance.GetChestsByGroup("B").Count > 0 && ChestManager.instance.GetChestsByGroup("B") != null)
         {
-            Debug.Log("BBBBBBBBBBBBBBBBBBBB");
             availableChestList = ChestManager.instance.GetChestsByGroup("B");
         }
 
@@ -57,6 +56,11 @@ public class MinimapManager : MonoBehaviour
         else if (ChestManager.instance.GetChestsByGroup("D").Count > 0 && ChestManager.instance.GetChestsByGroup("D") != null)
         {
             availableChestList = ChestManager.instance.GetChestsByGroup("D");
+        }
+
+        else if (ChestManager.instance.GetChestsByGroup("E").Count > 0 && ChestManager.instance.GetChestsByGroup("E") != null)
+        {
+            availableChestList = ChestManager.instance.GetChestsByGroup("E");
         }
 
         else

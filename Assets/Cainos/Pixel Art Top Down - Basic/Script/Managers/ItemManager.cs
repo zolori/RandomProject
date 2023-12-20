@@ -10,6 +10,7 @@ public class ItemManager : MonoBehaviour
     public List<Item> groupBItems;
     public List<Item> groupCItems;
     public List<Item> groupDItems;
+    public List<Item> groupEItems;
 
     void Awake()
     {
@@ -35,6 +36,7 @@ public class ItemManager : MonoBehaviour
         groupBItems = RandomizeList(groupBItems);
         groupCItems = RandomizeList(groupCItems);
         groupDItems = RandomizeList(groupDItems);
+        groupEItems = RandomizeList(groupEItems);
     }
 
     public List<Item> GetItemsByGroup(string group)
@@ -49,6 +51,8 @@ public class ItemManager : MonoBehaviour
                 return groupCItems;
             case "D":
                 return groupDItems;
+            case "E":
+                return groupEItems;
             default:
                 Debug.LogError("Group not found: " + group);
                 return new List<Item>(); // return an empty list
@@ -105,6 +109,15 @@ public class ItemManager : MonoBehaviour
             if (item.group != "D")
             {
                 Debug.LogWarning($"L'item {item.itemName} n'appartient pas au groupe D !");
+                return false;
+            }
+        }
+
+        foreach (Item item in groupEItems)
+        {
+            if (item.group != "E")
+            {
+                Debug.LogWarning($"L'item {item.itemName} n'appartient pas au groupe E !");
                 return false;
             }
         }

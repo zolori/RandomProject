@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AbilityHandler : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class AbilityHandler : MonoBehaviour
     public GameObject DoorOpen;
     public GameObject Parchment1;
     public GameObject Parchment2;
+    public GameObject LastChest;
     public GameObject Ending;
 
 
@@ -55,9 +57,9 @@ public class AbilityHandler : MonoBehaviour
     {
         Parchment2.SetActive(true);
     }
-    public virtual void HandleEnding()
+    public virtual void HandleLastChest()
     {
-        Destroy(Ending);
+        Destroy(LastChest);
     }
 
 
