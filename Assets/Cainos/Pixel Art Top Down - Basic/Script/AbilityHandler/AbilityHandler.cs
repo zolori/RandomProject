@@ -12,6 +12,8 @@ public class AbilityHandler : MonoBehaviour
     public GameObject BreakObstacles;
     public GameObject Key1;
     public GameObject Key2;
+    public GameObject CompleteKey;
+    public GameObject DoorOpen;
     public GameObject Parchment1;
     public GameObject Parchment2;
 
@@ -45,6 +47,11 @@ public class AbilityHandler : MonoBehaviour
     }
     public virtual void HandleKey2()
     {
+    }
+    public virtual void HandleCompleteKey()
+    {
+        Destroy(CompleteKey);
+        DoorOpen.SetActive(true);
     }
     public virtual void HandleParchment1()
     {

@@ -28,7 +28,7 @@ public class CheckAbility : MonoBehaviour
                         case "swim":
                             abilityHandler.HandleSwim();
                             break;
-                        case "sprint":
+                        case "fire":
                             abilityHandler.HandleFire();
                             break;
                         case "doubleJump":
@@ -40,16 +40,19 @@ public class CheckAbility : MonoBehaviour
                         case "breakObstacles":
                             abilityHandler.HandleBreakObstacles();
                             break;
-                        case "fly":
+                        case "key1":
                             abilityHandler.HandleKey1();
                             break;
-                        case "castSpells":
+                        case "key2":
                             abilityHandler.HandleKey2();
                             break;
-                        case "camouflage":
+                        case "completeKey":
+                            abilityHandler.HandleCompleteKey();
+                            break;
+                        case "parchment1":
                             abilityHandler.HandleParchment1();
                             break;
-                        case "nightVision":
+                        case "parchment2":
                             abilityHandler.HandleParchment2();
                             break;
                         default:
