@@ -22,7 +22,6 @@ public class CheckAbility : MonoBehaviour
                     switch (AbilityNeeded)
                     {
                         case "goThroughWalls":
-                            Debug.Log("BBBBBBBBBBH");
                             abilityHandler.HandleGoThroughWalls();
                             break;
                         case "swim":
