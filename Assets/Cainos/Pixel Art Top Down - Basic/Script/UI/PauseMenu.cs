@@ -21,7 +21,7 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
-            Console.Error.WriteLine("soundPlayer Empty");
+            Debug.LogWarning("soundPlayer Empty");
         }
 
         Cursor.visible = false;
@@ -64,12 +64,12 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
-            Console.Error.WriteLine("soundPlayer Empty");
+            Debug.LogWarning("soundPlayer Empty");
         }
 
         int currentSeed = SeedGenerator.GetGeneratedSeed();
         GUIUtility.systemCopyBuffer = currentSeed.ToString();
-        Debug.Log("Seed copiée dans le presse-papiers : " + currentSeed);
+        // Debug.Log("Seed copiée dans le presse-papiers : " + currentSeed);
     }
 
     public void onHoverButton()
@@ -81,7 +81,7 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
-            Console.Error.WriteLine("soundPlayer Empty");
+            Debug.LogWarning("soundPlayer Empty");
         }
     }
 }

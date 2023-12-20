@@ -100,7 +100,7 @@ public class UIManager : MonoBehaviour
 
     IEnumerator HideItemObtainedPopup()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(7f);
         itemObtainedPopup.SetActive(false);
 
         // display next popup

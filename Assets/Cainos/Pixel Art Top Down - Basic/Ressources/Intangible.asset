@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: Intangible
   itemDescription: Allows you to go through Walls. Don't do anything stupid with
     it.
-  itemIcon: {fileID: 21300000, guid: c241e847af767d148b898393a975bb22, type: 3}
+  itemIcon: {fileID: 21300000, guid: dac5d206f1a538847b135486b92fa831, type: 3}
   group: A
   grantedAbility: goThroughWalls

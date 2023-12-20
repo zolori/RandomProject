@@ -55,7 +55,7 @@ public class ItemManager : MonoBehaviour
                 return groupEItems;
             default:
                 Debug.LogError("Group not found: " + group);
-                return new List<Item>(); // return an empty list
+                return new List<Item>();
         }
     }
 

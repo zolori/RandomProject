@@ -52,6 +52,8 @@ MonoBehaviour:
   group: A
   isDisplayedOnMinimap: 0
   itemsInChest: []
+  soundPlayer: {fileID: 0}
+  openChest: {fileID: 8300000, guid: 87aa6e6af336dd2478741105aa29b71e, type: 3}
 --- !u!212 &2055102311959635368
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -11,7 +11,6 @@ public class OverlapChestZone : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            print("Give item to player!");
             Chest.OpenChest();
         }
     }

@@ -29,7 +29,7 @@ public class StartMenu : MonoBehaviour
         }
         else
         {
-            Console.Error.WriteLine("soundPlayer Empty");
+            Debug.LogWarning("soundPlayer Empty");
         }
 
         // did user asked for a precise seed?
@@ -87,7 +87,7 @@ public class StartMenu : MonoBehaviour
         }
         else
         {
-            Console.Error.WriteLine("soundPlayer Empty");
+            Debug.LogWarning("soundPlayer Empty");
         }
     }
 
@@ -100,7 +100,7 @@ public class StartMenu : MonoBehaviour
         }
         else
         {
-            Console.Error.WriteLine("soundPlayer Empty");
+            Debug.LogWarning("soundPlayer Empty");
         }
     }
 }

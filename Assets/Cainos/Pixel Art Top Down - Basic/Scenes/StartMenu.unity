@@ -310,11 +310,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 8380992641198646826, guid: 71c9833af64a33249909650806bed786,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8380992641198646869, guid: 71c9833af64a33249909650806bed786,
         type: 3}
       propertyPath: m_RootOrder

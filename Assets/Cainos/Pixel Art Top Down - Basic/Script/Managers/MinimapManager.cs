@@ -30,7 +30,7 @@ public class MinimapManager : MonoBehaviour
                 chestSpriteRenderer.enabled = true;
             }
             else 
-                Debug.Log("Chest Sprite Renderer null : problem for minimap.");
+                Debug.LogWarning("Chest Sprite Renderer null : problem for minimap.");
         }
     }
 
@@ -70,7 +70,6 @@ public class MinimapManager : MonoBehaviour
         }
 
         Chest chestRandom = GetRandomElement(availableChestList);
-        Debug.Log(chestRandom);
         return chestRandom;
     }
 

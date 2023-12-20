@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,14 +12,12 @@ public class CheckAbility : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             AbilityHandler abilityHandler = other.gameObject.GetComponent<AbilityHandler>();
-            Debug.Log("AbilityNeeded : " + AbilityNeeded + ", Other.name : " + other.gameObject.name + ", Has Ability? : " + PlayerManager.instance.HasAbility(AbilityNeeded));
+            // Debug.Log("AbilityNeeded : " + AbilityNeeded + ", Other.name : " + other.gameObject.name + ", Has Ability? : " + PlayerManager.instance.HasAbility(AbilityNeeded));
 
             if (abilityHandler != null)
             {
                 if (PlayerManager.instance.HasAbility(AbilityNeeded))
                 {
-                    print("Check successful! You can go");
-
                     switch (AbilityNeeded)
                     {
                         case "goThroughWalls":
@@ -52,7 +51,7 @@ public class CheckAbility : MonoBehaviour
                             abilityHandler.HandleLastChest();
                             break;
                         default:
-                            print("None of the abilities correspond");
+                            Debug.LogError("None of the abilities correspond");
                             break;
                     }
                 }

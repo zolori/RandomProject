@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd21bd063a65bd45b5cf0a4de292fd2, type: 3}
   m_Name: Gills
   m_EditorClassIdentifier: 
-  itemName: gills
+  itemName: Gills
   itemDescription: Water is not your enemy ANYMORE
-  itemIcon: {fileID: 21300064, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
+  itemIcon: {fileID: 21300000, guid: 85b96f9f839b32545a00196d83bb8fe6, type: 3}
   group: B
   grantedAbility: swim

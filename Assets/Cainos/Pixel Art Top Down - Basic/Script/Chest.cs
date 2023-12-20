@@ -11,6 +11,9 @@ public class Chest : MonoBehaviour
 
     private int numberOfItemsGiven;
 
+    public SoundPlayer soundPlayer;
+    public AudioClip openChest;
+
     // get unique id for the seed
     public int GetUniqueID()
     {
@@ -29,6 +32,16 @@ public class Chest : MonoBehaviour
 
     public void OpenChest()
     {
+        // play sound
+        if (soundPlayer != null)
+        {
+            soundPlayer.PlaySoundEffect(openChest);
+        }
+        else
+        {
+            Debug.LogWarning("soundPlayer Empty");
+        }
+
         numberOfItemsGiven = 1;
         foreach (Item item in itemsInChest)
         {
