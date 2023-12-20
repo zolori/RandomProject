@@ -12,7 +12,7 @@ public class MinimapManager : MonoBehaviour
         instance = this;
     }
 
-    void Start()
+    private void Start()
     {
         UpdateMinimap();
     }
@@ -20,35 +20,45 @@ public class MinimapManager : MonoBehaviour
     public void UpdateMinimap()
     {
         Chest chestToShow = getValidChest();
-        SpriteRenderer chestSpriteRenderer = chestToShow.transform.Find("SpriteMap").GetComponent<SpriteRenderer>();
-
-        if (chestSpriteRenderer != null)
+        if (chestToShow != null)
         {
-            chestSpriteRenderer.enabled = true;
+            SpriteRenderer chestSpriteRenderer = chestToShow.transform.Find("SpriteMap").GetComponent<SpriteRenderer>();
+
+            if (chestSpriteRenderer != null)
+            {
+                chestToShow.isDisplayedOnMinimap = true;
+                chestSpriteRenderer.enabled = true;
+            }
+            Debug.Log("Chest Sprite Renderer null : problem for minimap.");
         }
-        Debug.Log("Chest Sprite Renderer null : problem for minimap.");
     }
 
     private Chest getValidChest()
     {
         List<Chest> availableChestList;
 
-        if (ChestManager.instance.GetChestsByGroup("A") != null)
+        if (ChestManager.instance.GetChestsByGroup("A").Count > 0 && ChestManager.instance.GetChestsByGroup("A") != null)
         {
+            Debug.Log("AAAAAAAAAAAAAAAAAAAAA");
             availableChestList = ChestManager.instance.GetChestsByGroup("A");
         }
-        else if (ChestManager.instance.GetChestsByGroup("B") != null)
+
+        else if (ChestManager.instance.GetChestsByGroup("B").Count > 0 && ChestManager.instance.GetChestsByGroup("B") != null)
         {
+            Debug.Log("BBBBBBBBBBBBBBBBBBBB");
             availableChestList = ChestManager.instance.GetChestsByGroup("B");
         }
-        else if (ChestManager.instance.GetChestsByGroup("C") != null)
+
+        else if (ChestManager.instance.GetChestsByGroup("C").Count > 0 && ChestManager.instance.GetChestsByGroup("C") != null)
         {
             availableChestList = ChestManager.instance.GetChestsByGroup("C");
         }
-        else if (ChestManager.instance.GetChestsByGroup("D") != null)
+
+        else if (ChestManager.instance.GetChestsByGroup("D").Count > 0 && ChestManager.instance.GetChestsByGroup("D") != null)
         {
             availableChestList = ChestManager.instance.GetChestsByGroup("D");
         }
+
         else
         {
             Debug.Log("No chest existing anymore.");

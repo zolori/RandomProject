@@ -4,6 +4,7 @@ using UnityEngine;
 public class Chest : MonoBehaviour
 {
     public string group;
+    public bool isDisplayedOnMinimap = false;
 
     [SerializeField]
     private List<Item> itemsInChest;
@@ -34,7 +35,16 @@ public class Chest : MonoBehaviour
             GiveItemToPlayerUI(item);
             numberOfItemsGiven += 1;
         }
-        MinimapManager.instance.UpdateMinimap();
+
+        // remove from list of chests
+        ChestManager.instance.RemoveChestFromAllChestList(this);
+
+        if (isDisplayedOnMinimap)
+        {
+            // display new chest on minimap
+            MinimapManager.instance.UpdateMinimap();
+        }
+
         Destroy(gameObject);
     }
 

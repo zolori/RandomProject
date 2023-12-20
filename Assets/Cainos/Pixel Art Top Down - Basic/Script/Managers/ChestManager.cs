@@ -30,6 +30,11 @@ public class ChestManager : MonoBehaviour
         return allChests;
     }
 
+    public void RemoveChestFromAllChestList(Chest chestToRemove)
+    {
+        allChests.Remove(chestToRemove);
+    }
+
     public List<Chest> GetChestsByGroup(string group)
     {
         List<Chest> chestsInGroup = new List<Chest>();
