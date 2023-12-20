@@ -34,7 +34,7 @@ public class Chest : MonoBehaviour
             GiveItemToPlayerUI(item);
             numberOfItemsGiven += 1;
         }
-
+        MinimapManager.instance.UpdateMinimap();
         Destroy(gameObject);
     }
 
