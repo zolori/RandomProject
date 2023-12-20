@@ -57,6 +57,6 @@ public class Chest : MonoBehaviour
 
     private void AddToMainUI(Item item)
     {
-        UIManager.instance.AddImageToScrollView(item.itemIcon);
+        UIManager.instance.AddItemToScrollView(item.itemIcon, item.name);
     }
 }

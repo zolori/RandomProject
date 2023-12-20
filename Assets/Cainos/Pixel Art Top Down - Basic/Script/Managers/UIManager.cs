@@ -107,12 +107,15 @@ public class UIManager : MonoBehaviour
         ShowNextPopup();
     }
 
-    public void AddImageToScrollView(Sprite imageSprite)
+    public void AddItemToScrollView(Sprite imageSprite, string name)
     {
         // instanciate new image in main ui
-        GameObject imageObject = Instantiate(itemIconPrefab, contentRectTransform);
+        GameObject popupObject = Instantiate(itemIconPrefab, contentRectTransform);
 
-        Image imageComponent = imageObject.GetComponent<Image>();
+        Image imageComponent = popupObject.transform.GetChild(0).GetComponentInChildren<Image>();
         imageComponent.sprite = imageSprite;
+
+        TextMeshProUGUI textComponent = popupObject.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>();
+        textComponent.text = name;
     }
 }
