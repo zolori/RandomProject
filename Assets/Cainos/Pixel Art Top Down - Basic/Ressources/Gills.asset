@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fd21bd063a65bd45b5cf0a4de292fd2, type: 3}
-  m_Name: Ladder
+  m_Name: Gills
   m_EditorClassIdentifier: 
-  itemName: Ladder
-  itemDescription: Allows you to go though holes
-  itemIcon: {fileID: 21300034, guid: dda6bbdb704d84847b38f9eced72bf59, type: 3}
-  group: A
-  grantedAbility: goThroughHoles
+  itemName: gills
+  itemDescription: Water is not your enemy ANYMORE
+  itemIcon: {fileID: 21300064, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
+  group: B
+  grantedAbility: swim

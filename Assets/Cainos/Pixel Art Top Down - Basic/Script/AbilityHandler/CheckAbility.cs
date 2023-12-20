@@ -21,15 +21,15 @@ public class CheckAbility : MonoBehaviour
 
                     switch (AbilityNeeded)
                     {
-                        case "goThroughHoles":
-                            Debug.Log("AAAAAAAAAAH");
-                            abilityHandler.HandleGoThroughHoles();
+                        case "goThroughWalls":
+                            Debug.Log("BBBBBBBBBBH");
+                            abilityHandler.HandleGoThroughWalls();
                             break;
                         case "swim":
                             abilityHandler.HandleSwim();
                             break;
                         case "sprint":
-                            abilityHandler.HandleSprint();
+                            abilityHandler.HandleFire();
                             break;
                         case "doubleJump":
                             abilityHandler.HandleDoubleJump();
@@ -41,16 +41,16 @@ public class CheckAbility : MonoBehaviour
                             abilityHandler.HandleBreakObstacles();
                             break;
                         case "fly":
-                            abilityHandler.HandleFly();
+                            abilityHandler.HandleKey1();
                             break;
                         case "castSpells":
-                            abilityHandler.HandleCastSpells();
+                            abilityHandler.HandleKey2();
                             break;
                         case "camouflage":
-                            abilityHandler.HandleCamouflage();
+                            abilityHandler.HandleParchment1();
                             break;
                         case "nightVision":
-                            abilityHandler.HandleNightVision();
+                            abilityHandler.HandleParchment2();
                             break;
                         default:
                             print("None of the abilities correspond");

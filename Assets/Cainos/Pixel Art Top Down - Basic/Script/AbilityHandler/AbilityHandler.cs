@@ -4,50 +4,53 @@ using UnityEngine;
 
 public class AbilityHandler : MonoBehaviour
 {
+    public GameObject GoThroughWalls;
+    public GameObject Swim;
+    public GameObject Fire;
+    public GameObject DoubleJump;
+    public GameObject Climb;
+    public GameObject BreakObstacles;
+    public GameObject Key1;
+    public GameObject Key2;
+    public GameObject Parchment1;
+    public GameObject Parchment2;
 
-    public GameObject GoThroughHoles; // just a test
 
-
-    public virtual void HandleGoThroughHoles()
+    public virtual void HandleGoThroughWalls()
     {
-        print("Handling ability to go through holes.");
-        Destroy(GoThroughHoles); // just a test
+        Destroy(GoThroughWalls);
     }
     public virtual void HandleSwim()
     {
-        print("Handling ability to swim.");
+        Destroy(Swim);
     }
-    public virtual void HandleSprint()
+    public virtual void HandleFire()
     {
-        print("Handling ability to sprint.");
+        Destroy(Fire);
     }
     public virtual void HandleDoubleJump()
     {
-        print("Handling ability to double jump.");
+        Destroy(DoubleJump);
     }
     public virtual void HandleClimb()
     {
-        print("Handling ability to climb.");
+        Destroy(Climb);
     }
     public virtual void HandleBreakObstacles()
     {
-        print("Handling ability to break obstacles.");
+        Destroy(BreakObstacles);
     }
-    public virtual void HandleFly()
+    public virtual void HandleKey1()
     {
-        print("Handling ability to fly.");
     }
-    public virtual void HandleCastSpells()
+    public virtual void HandleKey2()
     {
-        print("Handling ability to cast spells.");
     }
-    public virtual void HandleCamouflage()
+    public virtual void HandleParchment1()
     {
-        print("Handling ability to camouflage.");
     }
-    public virtual void HandleNightVision()
+    public virtual void HandleParchment2()
     {
-        print("Handling ability for night vision.");
     }
 }
 

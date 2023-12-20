@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fd21bd063a65bd45b5cf0a4de292fd2, type: 3}
-  m_Name: Torch
+  m_Name: key2
   m_EditorClassIdentifier: 
-  itemName: Torch
-  itemDescription: Alows you to see in the dark
-  itemIcon: {fileID: 21300044, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
-  group: A
-  grantedAbility: nightVision
+  itemName: Key
+  itemDescription: That's the first key to have. Or is it the second ? I.. I forgot.
+    Go find the other if it's not done anyway.
+  itemIcon: {fileID: 21300000, guid: ed5c91c32b9b0af4e851c25c03211f16, type: 3}
+  group: C
+  grantedAbility: key2
